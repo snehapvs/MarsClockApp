@@ -42,12 +42,12 @@ $ php bin/console server:run
 Ex:
 
 `
-curl -X GET  http://127.0.0.1:8000/api/marsclock/utcTime=Wednesday,%2026-Feb-20%2015:43:25%20UTC
+curl -X GET  http://127.0.0.1:8000/api/marsclock?utc=Wednesday,%2026-Feb-20%2015:43:25%20UTC
 `
 
 2. or directly open a browser and run the following link to input a utc time from query params like below
 
-   http://127.0.0.1:8000/api/marsclock/utcTime={inputimeinutc}
+   http://127.0.0.1:8000/api/marsclock?utc={inputimeinutc}
 
 
 ### References and Improvements:
