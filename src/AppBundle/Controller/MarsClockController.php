@@ -19,7 +19,7 @@ class MarsClockController extends FOSRestController
 
     /**
      *
-     * @Rest\Get("/marsclock/utcTime={utcTime}")
+     * @Rest\Get("/marsClock/utcTime={utcTime}")
      * @return Response
      */
     public function marsAction($utcTime)
