@@ -28,7 +28,7 @@ $ composer install
 $ vendor/bin/simple-phpunit 
 ```
 
-2.Run the API using the following command
+2. Run the API using the following command
 
 ``` sh 
 $ php bin/console server:run 
@@ -37,22 +37,27 @@ $ php bin/console server:run
 
 ### HTTP API Endpoint URLs:
 
-1. Run the following curl command from terminal to test the API 
+1. Run the following curl command from terminal to test the API with any valid time format
 
 Ex:
 
-`
-curl -X GET  http://127.0.0.1:8000/api/marsclock/utcTime=Wednesday,%2026-Feb-20%2015:43:25%20UTC
-`
+`curl -X GET  http://127.0.0.1:8000/api/marsclock?utc=Wednesday,%2026-Feb-20%2015:43:25%20UTC`
+
+`curl -X GET  http://127.0.0.1:8000/api/marsclock?utc=2020-02-26T20:17:46.384Z`
 
 2. or directly open a browser and run the following link to input a utc time from query params like below
 
-   http://127.0.0.1:8000/api/marsclock/utcTime={inputimeinutc}
+http://127.0.0.1:8000/api/marsclock?utc={inputimeinutc}
+   
+Ex:
+http://127.0.0.1:8000/api/marsclock?utc=2020-02-26T20:17:46.384Z
 
 
 ### References and Improvements:
 1. All the formulae used to find Mars sol Date (MSD) and Mars Time Cordinates (MTC) are referred from the following link
+
 https://www.giss.nasa.gov/tools/mars24/help/algorithm.html
+
 2. Additionally referred mars24 webiste for additional time difference adjustments and accurate leapdays count.
 3. Used Symphony based PHP skeleton to build the microservice(skelton on default has DB/ORM settings which can be avoided). the setup could be automated through docker
 
