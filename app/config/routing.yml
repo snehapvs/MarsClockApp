@@ -1,0 +1,9 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+    
+hello:
+    path:  /marsclock
+    defaults: { _controller: AppBundle:MarsClock:mars}
+    requirements:
+        _method: GET
