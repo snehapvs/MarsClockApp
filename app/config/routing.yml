@@ -3,7 +3,7 @@ app:
     type: annotation
     
 marsclock:
-    path:  /marsClock
+    path:  /marsclock
     defaults: { _controller: AppBundle:MarsClock:mars}
     requirements:
         _method: GET

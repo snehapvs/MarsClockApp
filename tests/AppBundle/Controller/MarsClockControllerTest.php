@@ -12,7 +12,7 @@ class MarsClockControllerTest extends WebTestCase
     public function testIndex()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/api/marsclock/utcTime=Wednesday, 26-Feb-20 15:43:25 UTC');
+        $crawler = $client->request('GET', '/api/marsclock?utc=Wednesday, 26-Feb-20 15:43:25 UTC');
         $this->assertEquals(200, $client->getResponse()
             ->getStatusCode());
         $expectedResponse = new \stdClass();
@@ -25,7 +25,7 @@ class MarsClockControllerTest extends WebTestCase
     public function testBadRequestException()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/api/marsclock/utcTime=111');
+        $crawler = $client->request('GET', '/api/marsclock?utc=111');
         $this->assertEquals(400, $client->getResponse()
             ->getStatusCode());
         $expectedResponse = new \stdClass();

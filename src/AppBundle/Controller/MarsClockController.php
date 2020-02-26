@@ -3,8 +3,10 @@ namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
+use FOS\RestBundle\Request\ParamFetcher;
 use AppBundle\Service\MarsClockService;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -14,17 +16,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  *
  * @Route("/api",name="api_")
  */
-class MarsClockController extends FOSRestController
+class MarsClockController extends AbstractFOSRestController
 {
 
     /**
      *
-     * @Rest\Get("/marsClock/utcTime={utcTime}")
+     * @Rest\Get("/marsclock")
+     * @QueryParam(name="utc", default="")
      * @return Response
      */
-    public function marsAction($utcTime)
+    public function marsAction(ParamFetcher $paramFetcher)
     {
         try {
+            $utcTime = $paramFetcher->get('utc');
             $marsClockService = new MarsClockService();
             $MSD = $marsClockService->getMSD($utcTime);
             $MTC = $marsClockService->getMTC($MSD);
@@ -37,7 +41,6 @@ class MarsClockController extends FOSRestController
             $response->message = $e->getMessage();
             return new Response(json_encode($response), 400);
         } catch (NotFoundHttpException $e) {
-            echo "hereeee";
             $response = new \stdClass();
             $response->message = "Please check if the input url is valid";
             return new Response(json_encode($response), 404);
