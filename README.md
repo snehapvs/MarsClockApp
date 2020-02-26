@@ -8,20 +8,31 @@
 
 Excecute the following comands from a terminal to install the project
 
-```sh $ git clone https://github.com/coder477/MarsClockApp.git```
+```sh 
+$ git clone https://github.com/coder477/MarsClockApp.git
+```
 
-```sh $ cd MarsClockApp```
+```sh
+$ cd MarsClockApp
+```
 
-``` sh $ composer install ```(the db settings that pop up through the setup can be ignored as we are not using any DB setup for the application)
+``` sh 
+$ composer install 
+``` 
+(the db settings that pop up through the setup can be ignored as we are not using any DB setup for the application)
 
 ### Running the Application:
 1. Run tests with the following :
 
-```sh vendor/bin/simple-phpunit ```
+```sh 
+$ vendor/bin/simple-phpunit 
+```
 
 2.Run the API using the following command
 
-``` sh  php bin/console server:run ```
+``` sh 
+$ php bin/console server:run 
+```
 
 
 ### HTTP API Endpoint URLs:
