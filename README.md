@@ -38,10 +38,13 @@ $ php bin/console server:run
 ### HTTP API Endpoint URLs:
 
 1. Run the following curl command from terminal to test the API 
+
 Ex:
+
 `
 curl -X GET  http://127.0.0.1:8000/api/marsclock/utcTime=Wednesday,%2026-Feb-20%2015:43:25%20UTC
 `
+
 2. or directly open a browser and run the following link to input a utc time from query params like below
 
    http://127.0.0.1:8000/api/marsclock/utcTime={inputimeinutc}
